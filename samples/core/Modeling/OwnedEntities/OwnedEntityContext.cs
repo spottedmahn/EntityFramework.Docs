@@ -43,7 +43,10 @@ namespace OwnedEntities
             modelBuilder.Entity<DetailedOrder>().OwnsOne(p => p.OrderDetails, od =>
             {
                 od.OwnsOne(c => c.BillingAddress);
-                od.OwnsOne(c => c.ShippingAddress);
+                od.OwnsOne(c => c.ShippingAddress, sa =>
+                {
+                    sa.Ignore(p => p.IgnoreMe);
+                });
                 od.ToTable("OrderDetails");
             });
             #endregion
