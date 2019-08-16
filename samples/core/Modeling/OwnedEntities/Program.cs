@@ -20,10 +20,11 @@ namespace OwnedEntities
                     OrderDetails = new OrderDetails
                     {
                         ShippingAddress = new StreetAddress { City = "London", Street = "221 B Baker St", IgnoreMe = "Hello World" },
-                        BillingAddress = new StreetAddress { City = "New York", Street = "11 Wall Street", IgnoreMe = "Hello World" }
+                        //BillingAddress = new StreetAddress()
+                        //BillingAddress = new StreetAddress { City = "New York", Street = "11 Wall Street", IgnoreMe = "Hello World" }
                     }
                 });
-
+                //System.InvalidOperationException: 'The entity of type 'OrderDetails' is sharing the table 'OrderDetails' with entities of type 'OrderDetails.BillingAddress#StreetAddress', but there is no entity of this type with the same key value that has been marked as 'Added'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the key values.'
                 Console.WriteLine("Saving changes");
                 context.SaveChanges();
             }
