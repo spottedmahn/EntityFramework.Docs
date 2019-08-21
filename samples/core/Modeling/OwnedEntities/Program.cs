@@ -25,6 +25,8 @@ namespace OwnedEntities
                     }
                 });
                 //System.InvalidOperationException: 'The entity of type 'OrderDetails' is sharing the table 'OrderDetails' with entities of type 'OrderDetails.BillingAddress#StreetAddress', but there is no entity of this type with the same key value that has been marked as 'Added'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the key values.'
+                //testing 3.0
+                //https://github.com/aspnet/EntityFrameworkCore/issues/9005#issuecomment-477741082
                 Console.WriteLine("Saving changes");
                 context.SaveChanges();
             }

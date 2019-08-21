@@ -54,7 +54,8 @@ namespace OwnedEntities
             #region OwnsMany
             modelBuilder.Entity<Distributor>().OwnsMany(p => p.ShippingCenters, a =>
             {
-                a.HasForeignKey("DistributorId");
+                a.WithOwner()
+                    .HasForeignKey("DistributorId");
                 a.Property<int>("Id");
                 a.HasKey("DistributorId", "Id");
             });
