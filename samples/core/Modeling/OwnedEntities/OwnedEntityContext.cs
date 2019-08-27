@@ -47,7 +47,8 @@ namespace OwnedEntities
                 {
                     sa.Ignore(p => p.IgnoreMe);
                 });
-                od.ToTable("OrderDetails");
+                //https://github.com/aspnet/EntityFrameworkCore/issues/17448#issuecomment-525415273
+                //od.ToTable("OrderDetails");
             });
             #endregion
 
