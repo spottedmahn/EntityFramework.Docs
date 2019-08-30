@@ -48,7 +48,11 @@ namespace OwnedEntities
                     sa.Ignore(p => p.IgnoreMe);
                 });
                 //https://github.com/aspnet/EntityFrameworkCore/issues/17448#issuecomment-525415273
-                //od.ToTable("OrderDetails");
+                od.ToTable("OrderDetails");
+                //3.0 bug: https://github.com/aspnet/EntityFrameworkCore/issues/17448#issuecomment-525444101 
+                //fixed in 3.1: https://github.com/aspnet/EntityFrameworkCore/pull/17458
+                od.Property("OrderId")
+                    .ValueGeneratedNever();
             });
             #endregion
 
