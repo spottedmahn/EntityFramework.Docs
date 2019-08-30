@@ -44,8 +44,7 @@ namespace OwnedEntities
             {
                 #region DetailedOrderQuery
                 var order = context.DetailedOrders.First(o => o.Status == OrderStatus.Pending);
-                Console.WriteLine($"First pending order will ship to: {order.OrderDetails.ShippingAddress.City}");
-                Console.WriteLine($"IgnoreMe value: {order.OrderDetails.ShippingAddress.IgnoreMe}");
+                Console.WriteLine($"NULL Owned Type Test, Is Billing Address NULL? {order.OrderDetails.BillingAddress == null}");
                 #endregion
             }
         }
