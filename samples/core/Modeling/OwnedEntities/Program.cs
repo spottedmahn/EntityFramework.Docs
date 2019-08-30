@@ -19,12 +19,20 @@ namespace OwnedEntities
                     Status = OrderStatus.Pending,
                     OrderDetails = new OrderDetails
                     {
-                        ShippingAddress = new StreetAddress { City = "London", Street = "221 B Baker St", IgnoreMe = "Hello World" },
+                        ShippingAddress = new StreetAddress
+                        {
+                            City = "London",
+                            Street = "221 B Baker St",
+                            IgnoreMe = "Hello World"
+                        },
                         //BillingAddress = new StreetAddress()
                         //BillingAddress = new StreetAddress { City = "New York", Street = "11 Wall Street", IgnoreMe = "Hello World" }
                     }
                 });
-                //System.InvalidOperationException: 'The entity of type 'OrderDetails' is sharing the table 'OrderDetails' with entities of type 'OrderDetails.BillingAddress#StreetAddress', but there is no entity of this type with the same key value that has been marked as 'Added'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the key values.'
+                //System.InvalidOperationException: 'The entity of type 'OrderDetails' is sharing the table
+                //'OrderDetails' with entities of type 'OrderDetails.BillingAddress#StreetAddress', 
+                //but there is no entity of this type with the same key value that has been marked as 'Added'.
+                //Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the key values.'
                 //testing 3.0
                 //https://github.com/aspnet/EntityFrameworkCore/issues/9005#issuecomment-477741082
                 Console.WriteLine("Saving changes");
