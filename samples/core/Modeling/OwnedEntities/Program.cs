@@ -22,8 +22,7 @@ namespace OwnedEntities
                         ShippingAddress = new StreetAddress
                         {
                             City = "London",
-                            Street = "221 B Baker St",
-                            IgnoreMe = "Hello World"
+                            Street = "221 B Baker St"
                         }
                         //testing 3.0: "Yes, all dependents are now optional"
                         //reference: https://github.com/aspnet/EntityFrameworkCore/issues/9005#issuecomment-477741082
@@ -31,8 +30,7 @@ namespace OwnedEntities
                         //BillingAddress = new StreetAddress
                         //{
                         //    City = "New York",
-                        //    Street = "11 Wall Street",
-                        //    IgnoreMe = "Hello World"
+                        //    Street = "11 Wall Street"
                         //}
                     }
                 });
@@ -44,7 +42,9 @@ namespace OwnedEntities
             {
                 #region DetailedOrderQuery
                 var order = context.DetailedOrders.First(o => o.Status == OrderStatus.Pending);
-                Console.WriteLine($"NULL Owned Type Test, Is Billing Address NULL? {order.OrderDetails.BillingAddress == null}");
+                Console.Write("NULL Owned Type Test, Is Billing Address NULL?");
+                //PRINTS FALSE
+                Console.WriteLine($"{order.OrderDetails.BillingAddress == null}");
                 #endregion
             }
         }
