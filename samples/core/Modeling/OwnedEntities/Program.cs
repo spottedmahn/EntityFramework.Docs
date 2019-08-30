@@ -24,17 +24,18 @@ namespace OwnedEntities
                             City = "London",
                             Street = "221 B Baker St",
                             IgnoreMe = "Hello World"
-                        },
-                        //BillingAddress = new StreetAddress()
-                        //BillingAddress = new StreetAddress { City = "New York", Street = "11 Wall Street", IgnoreMe = "Hello World" }
+                        }
+                        //testing 3.0: "Yes, all dependents are now optional"
+                        //reference: https://github.com/aspnet/EntityFrameworkCore/issues/9005#issuecomment-477741082
+                        //NULL Owned Type Testing
+                        //BillingAddress = new StreetAddress
+                        //{
+                        //    City = "New York",
+                        //    Street = "11 Wall Street",
+                        //    IgnoreMe = "Hello World"
+                        //}
                     }
                 });
-                //System.InvalidOperationException: 'The entity of type 'OrderDetails' is sharing the table
-                //'OrderDetails' with entities of type 'OrderDetails.BillingAddress#StreetAddress', 
-                //but there is no entity of this type with the same key value that has been marked as 'Added'.
-                //Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the key values.'
-                //testing 3.0
-                //https://github.com/aspnet/EntityFrameworkCore/issues/9005#issuecomment-477741082
                 Console.WriteLine("Saving changes");
                 context.SaveChanges();
             }
