@@ -44,8 +44,11 @@ namespace OwnedEntities
             {
                 od.OwnsOne(c => c.BillingAddress);
                 od.OwnsOne(c => c.ShippingAddress);
-                //https://github.com/aspnet/EntityFrameworkCore/issues/17448#issuecomment-525415273
                 od.ToTable("OrderDetails");
+                //Exception message:Microsoft.Data.SqlClient.SqlException:
+                //'Cascading foreign key 'FK_OrderDetails_DetailedOrders_OrderId' cannot
+                //be created where the referencing column 'OrderDetails.OrderId' is an identity column.
+                //Could not create constraint or index. See previous errors.'
                 //3.0 bug: https://github.com/aspnet/EntityFrameworkCore/issues/17448#issuecomment-525444101 
                 //fixed in 3.1: https://github.com/aspnet/EntityFrameworkCore/pull/17458
                 od.Property("OrderId")
