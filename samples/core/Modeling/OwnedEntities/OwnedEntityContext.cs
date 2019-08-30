@@ -43,10 +43,7 @@ namespace OwnedEntities
             modelBuilder.Entity<DetailedOrder>().OwnsOne(p => p.OrderDetails, od =>
             {
                 od.OwnsOne(c => c.BillingAddress);
-                od.OwnsOne(c => c.ShippingAddress, sa =>
-                {
-                    sa.Ignore(p => p.IgnoreMe);
-                });
+                od.OwnsOne(c => c.ShippingAddress);
                 //https://github.com/aspnet/EntityFrameworkCore/issues/17448#issuecomment-525415273
                 od.ToTable("OrderDetails");
                 //3.0 bug: https://github.com/aspnet/EntityFrameworkCore/issues/17448#issuecomment-525444101 
